@@ -85,7 +85,9 @@ const Hero = () => {
           {/* Trust Indicators */}
           <div className="mt-16 flex flex-wrap justify-center items-center gap-8 opacity-70">
             <div className="text-center">
-              <div className="text-2xl font-bold text-teal-600 dark:text-teal-400">4.8</div>
+              <div className="text-2xl font-bold text-teal-600 dark:text-teal-400">
+                {statsLoading ? '...' : stats.averageRating.toFixed(1)}
+              </div>
               <div className="text-xs text-slate-500 dark:text-slate-400">Calificación promedio</div>
             </div>
             <div className="w-px h-8 bg-slate-300 dark:bg-slate-600"></div>
