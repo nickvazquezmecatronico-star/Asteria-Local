@@ -66,7 +66,7 @@ const MapView = () => {
                 </Button>
                 
                 {categories.slice(0, 6).map((category) => {
-                  const IconComponent = category.icon;
+                  const IconComponent = LucideIcons[category.icon] || LucideIcons.Package;
                   const isSelected = selectedCategory === category.name;
                   return (
                     <Button
