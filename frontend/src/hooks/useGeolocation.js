@@ -6,7 +6,7 @@ export const useGeolocation = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const getLocation = async () => {
+  const getLocation = async (useFallback = true) => {
     setLoading(true);
     setError(null);
 
@@ -16,10 +16,19 @@ export const useGeolocation = () => {
       return position;
     } catch (err) {
       setError(err.message);
-      // Fallback to default coordinates
-      const defaultLocation = DEFAULT_COORDINATES;
-      setLocation(defaultLocation);
-      return defaultLocation;
+      
+      if (useFallback) {
+        // For demo purposes, use Tampico coordinates
+        const defaultLocation = {
+          ...DEFAULT_COORDINATES,
+          accuracy: 100,
+          demo: true
+        };
+        setLocation(defaultLocation);
+        return defaultLocation;
+      } else {
+        throw err;
+      }
     } finally {
       setLoading(false);
     }
