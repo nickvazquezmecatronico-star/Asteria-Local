@@ -259,7 +259,7 @@ const MapView = () => {
                     
                     return (
                       <div
-                        key={pin.id}
+                        key={`map-pin-${pin.id || index}`}
                         className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-125`}
                         style={{
                           left: `${20 + (index * 15)}%`,
