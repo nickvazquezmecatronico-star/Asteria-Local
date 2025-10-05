@@ -213,38 +213,73 @@ const BusinessMapPin = ({
               )}
 
               {/* Action buttons */}
-              <div className="grid grid-cols-3 gap-2">
-                {business.phone && (
+              <div className="space-y-2">
+                {/* First row - Contact buttons */}
+                <div className="grid grid-cols-3 gap-2">
+                  {business.phone && (
+                    <Button 
+                      size="sm" 
+                      variant="outline"
+                      onClick={(e) => handleCall(e, business.phone)}
+                      className="text-xs py-1 h-8"
+                    >
+                      <Phone className="h-3 w-3 mr-1" />
+                      Call
+                    </Button>
+                  )}
+                  
+                  {business.whatsapp && (
+                    <Button 
+                      size="sm" 
+                      variant="outline"
+                      onClick={(e) => handleWhatsApp(e, business.whatsapp)}
+                      className="text-xs py-1 h-8 border-green-300 text-green-700 hover:bg-green-50"
+                    >
+                      <MessageCircle className="h-3 w-3 mr-1" />
+                      Chat
+                    </Button>
+                  )}
+                  
                   <Button 
-                    size="sm" 
-                    variant="outline"
-                    onClick={(e) => handleCall(e, business.phone)}
-                    className="text-xs py-1 h-8"
+                    size="sm"
+                    onClick={handleViewDetails}
+                    className="text-xs py-1 h-8 bg-teal-600 hover:bg-teal-700 text-white"
                   >
-                    <Phone className="h-3 w-3 mr-1" />
-                    Call
+                    Ver más
                   </Button>
-                )}
+                </div>
                 
-                {business.whatsapp && (
+                {/* Second row - Map actions */}
+                <div className="grid grid-cols-3 gap-1">
                   <Button 
-                    size="sm" 
+                    size="sm"
                     variant="outline"
-                    onClick={(e) => handleWhatsApp(e, business.whatsapp)}
-                    className="text-xs py-1 h-8 border-green-300 text-green-700 hover:bg-green-50"
+                    onClick={handleOpenMaps}
+                    className="text-xs py-1 h-7 px-2"
                   >
-                    <MessageCircle className="h-3 w-3 mr-1" />
-                    Chat
+                    <Navigation className="h-3 w-3 mr-1" />
+                    Maps
                   </Button>
-                )}
-                
-                <Button 
-                  size="sm"
-                  onClick={handleViewDetails}
-                  className="text-xs py-1 h-8 bg-teal-600 hover:bg-teal-700 text-white"
-                >
-                  Ver más
-                </Button>
+                  
+                  <Button 
+                    size="sm"
+                    variant="outline"
+                    onClick={handleGetDirections}
+                    className="text-xs py-1 h-7 px-2"
+                  >
+                    <MapPin className="h-3 w-3 mr-1" />
+                    Ir
+                  </Button>
+                  
+                  <Button 
+                    size="sm"
+                    variant="outline"
+                    onClick={handleShareLocation}
+                    className="text-xs py-1 h-7 px-2"
+                  >
+                    <Navigation className="h-3 w-3" />
+                  </Button>
+                </div>
               </div>
             </CardContent>
           </Card>
