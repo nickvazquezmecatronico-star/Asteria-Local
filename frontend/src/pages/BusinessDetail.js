@@ -354,6 +354,17 @@ const BusinessDetail = () => {
             </div>
           </CardContent>
         </Card>
+
+        {/* Reviews Section */}
+        <div id="reviews-section" className="mt-12">
+          <ReviewSection
+            businessId={businessId}
+            reviews={reviews}
+            averageRating={business.rating_average}
+            totalReviews={business.total_reviews}
+            onNewReview={handleNewReview}
+          />
+        </div>
       </div>
     </div>
   );
