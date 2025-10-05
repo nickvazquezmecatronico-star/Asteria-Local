@@ -20,6 +20,47 @@ const TopBusinesses = () => {
     console.log('View business details:', business.name);
   };
 
+  if (loading) {
+    return (
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-slate-100/50 dark:from-slate-800 dark:to-slate-900 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-100 to-amber-100 dark:from-yellow-900/30 dark:to-amber-900/30 rounded-full mb-4">
+              <Award className="h-4 w-4 text-yellow-600 dark:text-yellow-400 mr-2" />
+              <span className="text-sm font-medium text-yellow-700 dark:text-yellow-300">
+                Los más valorados
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+              Top de la{' '}
+              <span className="text-yellow-600 dark:text-yellow-400 font-bold">
+                semana
+              </span>
+            </h2>
+            <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+              Los negocios más recomendados por nuestra comunidad esta semana
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Card key={i} className="animate-pulse bg-slate-200 dark:bg-slate-700 h-96"></Card>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-slate-100/50 dark:from-slate-800 dark:to-slate-900 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-red-500 dark:text-red-400">Error cargando negocios destacados: {error}</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-20 bg-gradient-to-br from-slate-50 to-slate-100/50 dark:from-slate-800 dark:to-slate-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
