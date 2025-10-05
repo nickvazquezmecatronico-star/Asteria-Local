@@ -18,6 +18,7 @@ const BusinessMapPin = ({
   userLocation = null 
 }) => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const IconComponent = category ? LucideIcons[category.icon] || LucideIcons.MapPin : LucideIcons.MapPin;
 
   const handleCall = (e, phone) => {
