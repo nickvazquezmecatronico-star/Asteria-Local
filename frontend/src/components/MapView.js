@@ -292,16 +292,38 @@ const MapView = () => {
 
                 {/* Legend */}
                 <div className="absolute bottom-4 left-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm rounded-lg p-4 shadow-lg max-w-xs">
-                  <h4 className="text-sm font-medium text-slate-900 dark:text-white mb-3">Leyenda</h4>
+                  <h4 className="text-sm font-medium text-slate-900 dark:text-white mb-3">
+                    {showNearbyOnly && location ? 'Negocios Cercanos' : 'Leyenda'}
+                  </h4>
                   <div className="space-y-2 text-xs">
-                    {filteredPins.map((pin) => (
-                      <div key={pin.id} className="flex items-center gap-2">
-                        <div className="w-3 h-3 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full"></div>
-                        <span className="text-slate-700 dark:text-slate-300">
-                          {pin.category}: {pin.count} lugares
-                        </span>
-                      </div>
-                    ))}
+                    {showNearbyOnly && location ? (
+                      <>
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                          <span className="text-slate-700 dark:text-slate-300">Tu ubicación</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full"></div>
+                          <span className="text-slate-700 dark:text-slate-300">
+                            {displayBusinesses.length} negocios en 10km
+                          </span>
+                        </div>
+                        {locationError && (
+                          <div className="text-red-500 dark:text-red-400 text-xs">
+                            {locationError}
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      filteredPins.map((pin) => (
+                        <div key={pin.id} className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full"></div>
+                          <span className="text-slate-700 dark:text-slate-300">
+                            {pin.category}: {pin.count} lugares
+                          </span>
+                        </div>
+                      ))
+                    )}
                   </div>
                 </div>
               </div>
