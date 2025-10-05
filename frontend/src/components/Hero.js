@@ -1,8 +1,10 @@
 import React from 'react';
 import { Button } from './ui/button';
 import { MapPin, Search, Star } from 'lucide-react';
+import { usePlatformStats } from '../hooks/useStats';
 
 const Hero = () => {
+  const { stats, loading: statsLoading } = usePlatformStats();
   return (
     <section className="relative pt-16 pb-20 min-h-[60vh] flex items-center overflow-hidden">
       {/* Background */}
