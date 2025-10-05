@@ -3,9 +3,10 @@ import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Star, Phone, MessageCircle, MapPin, Award } from 'lucide-react';
-import { topBusinesses } from '../data/mockData';
+import { useFeaturedBusinesses } from '../hooks/useBusinesses';
 
 const TopBusinesses = () => {
+  const { businesses: topBusinesses, loading, error } = useFeaturedBusinesses(5);
   const handleCall = (phone) => {
     window.open(`tel:${phone}`, '_self');
   };
