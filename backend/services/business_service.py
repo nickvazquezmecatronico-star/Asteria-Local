@@ -85,12 +85,12 @@ class BusinessService:
         
         return [BusinessResponse.from_mongo(business) for business in businesses]
 
-    async def get_businesses_by_category(self, category_slug: str, limit: int = 20) -> List[BusinessResponse]:
-        """Get businesses by category slug"""
+    async def get_businesses_by_category(self, category_name: str, limit: int = 100) -> List[BusinessResponse]:
+        """Get businesses by category name"""
         
         query = {
             "is_active": True,
-            "category": category_slug
+            "category": category_name
         }
         
         cursor = self.collection.find(query).sort("rating_average", -1).limit(limit)
