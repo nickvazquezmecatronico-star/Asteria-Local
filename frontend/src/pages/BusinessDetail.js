@@ -325,7 +325,7 @@ const BusinessDetail = () => {
                   </CardContent>
                 </Card>
 
-                {/* Reviews Section Placeholder */}
+                {/* Quick Reviews Link */}
                 <Card className="mt-6">
                   <CardContent className="p-6 text-center">
                     <h3 className="font-semibold text-slate-900 dark:text-white mb-2">Reseñas</h3>
@@ -335,9 +335,18 @@ const BusinessDetail = () => {
                         : 'Sé el primero en dejar una reseña'
                       }
                     </p>
-                    <Button variant="outline" size="sm" className="w-full">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full"
+                      onClick={() => {
+                        document.getElementById('reviews-section').scrollIntoView({ 
+                          behavior: 'smooth' 
+                        });
+                      }}
+                    >
                       <Heart className="h-4 w-4 mr-2" />
-                      Dejar reseña
+                      Ver reseñas
                     </Button>
                   </CardContent>
                 </Card>
