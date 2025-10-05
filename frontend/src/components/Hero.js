@@ -4,7 +4,7 @@ import { MapPin, Search, Star } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative pt-16 min-h-screen flex items-center overflow-hidden">
+    <section className="relative pt-16 h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-teal-50/30 to-cyan-50/50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"></div>
       
