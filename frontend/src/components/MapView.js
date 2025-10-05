@@ -3,11 +3,14 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { MapPin, Layers, Navigation, Filter } from 'lucide-react';
-import { mapPins, categories } from '../data/mockData';
+import { useMapData } from '../hooks/useMapData';
+import { useCategories } from '../hooks/useCategories';
+import * as LucideIcons from 'lucide-react';
 
 const MapView = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const { pins: mapPins, loading: pinsLoading } = useMapData({ category: selectedCategory });
+  const { categories, loading: categoriesLoading } = useCategories();
 
   const handleCategoryFilter = (categoryName) => {
     setSelectedCategory(selectedCategory === categoryName ? null : categoryName);
