@@ -68,7 +68,7 @@ const Categories = () => {
             const IconComponent = LucideIcons[category.icon] || LucideIcons.Package;
             return (
               <Card 
-                key={category.id}
+                key={`category-${category.id || index}`}
                 className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-gradient-to-br from-white to-slate-50/50 dark:from-slate-800 dark:to-slate-800/50 border-slate-200 dark:border-slate-700 hover:border-teal-300 dark:hover:border-teal-600"
                 onClick={() => handleCategoryClick(category)}
               >
