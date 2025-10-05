@@ -9,17 +9,28 @@ import { useToast } from '../hooks/use-toast';
 
 const TopBusinesses = () => {
   const { businesses: topBusinesses, loading, error } = useFeaturedBusinesses(5);
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
   const handleCall = (phone) => {
     window.open(`tel:${phone}`, '_self');
+    toast({
+      title: "Llamando...",
+      description: `Marcando a ${phone}`,
+    });
   };
 
   const handleWhatsApp = (phone) => {
     const cleanPhone = phone.replace(/\D/g, '');
     window.open(`https://wa.me/${cleanPhone}`, '_blank');
+    toast({
+      title: "Abriendo WhatsApp...",
+      description: "Te redirigimos a WhatsApp",
+    });
   };
 
   const handleViewMore = (business) => {
-    console.log('View business details:', business.name);
+    navigate(`/business/${business.id}`);
   };
 
   if (loading) {
