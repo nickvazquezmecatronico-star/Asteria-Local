@@ -13,6 +13,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import BusinessRegistration from "./pages/BusinessRegistration";
 import BusinessDetail from "./pages/BusinessDetail";
+import CategoryPage from "./pages/CategoryPage";
+import AllCategories from "./pages/AllCategories";
 import "./App.css";
 
 const Home = () => {
