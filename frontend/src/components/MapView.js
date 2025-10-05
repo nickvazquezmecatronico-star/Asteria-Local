@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
-import { MapPin, Layers, Navigation, Filter } from 'lucide-react';
+import { useToast } from '../hooks/use-toast';
+import { MapPin, Layers, Navigation, Filter, Crosshair, Loader2 } from 'lucide-react';
 import { useMapData } from '../hooks/useMapData';
 import { useCategories } from '../hooks/useCategories';
+import { useGeolocation } from '../hooks/useGeolocation';
+import { useBusinessesNearby } from '../hooks/useBusinessesNearby';
+import BusinessMapPin from './BusinessMapPin';
 import * as LucideIcons from 'lucide-react';
 
 const MapView = () => {
