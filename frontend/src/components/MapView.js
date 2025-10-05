@@ -93,19 +93,51 @@ const MapView = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
+                {/* Location Button */}
                 <Button
-                  variant={selectedCategory === null ? "default" : "ghost"}
-                  size="sm"
-                  onClick={() => setSelectedCategory(null)}
-                  className={`w-full justify-start ${
-                    selectedCategory === null 
-                      ? 'bg-gradient-to-r from-teal-600 to-cyan-600 text-white' 
-                      : 'text-slate-700 dark:text-slate-300'
-                  }`}
+                  onClick={handleLocateMe}
+                  disabled={locationLoading}
+                  className="w-full justify-start bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
                 >
-                  <Layers className="h-4 w-4 mr-2" />
-                  Todas las categorías
+                  {locationLoading ? (
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  ) : (
+                    <Crosshair className="h-4 w-4 mr-2" />
+                  )}
+                  {locationLoading ? 'Ubicando...' : 'Ubicarme'}
                 </Button>
+
+                {/* Show nearby toggle */}
+                {location && (
+                  <Button
+                    variant={showNearbyOnly ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => {
+                      setShowNearbyOnly(!showNearbyOnly);
+                      setSelectedPin(null);
+                    }}
+                    className="w-full justify-start text-xs"
+                  >
+                    <Navigation className="h-4 w-4 mr-2" />
+                    {showNearbyOnly ? 'Mostrar todos' : 'Solo cercanos'}
+                  </Button>
+                )}
+
+                <div className="border-t border-slate-200 dark:border-slate-600 pt-3">
+                  <Button
+                    variant={selectedCategory === null ? "default" : "ghost"}
+                    size="sm"
+                    onClick={() => setSelectedCategory(null)}
+                    className={`w-full justify-start ${
+                      selectedCategory === null 
+                        ? 'bg-gradient-to-r from-teal-600 to-cyan-600 text-white' 
+                        : 'text-slate-700 dark:text-slate-300'
+                    }`}
+                  >
+                    <Layers className="h-4 w-4 mr-2" />
+                    Todas las categorías
+                  </Button>
+                </div>
                 
                 {categories.slice(0, 6).map((category) => {
                   const IconComponent = LucideIcons[category.icon] || LucideIcons.Package;
