@@ -46,15 +46,21 @@ const Hero = () => {
           <div className="flex flex-wrap justify-center gap-6 mb-10 text-sm">
             <div className="flex items-center bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm px-4 py-2 rounded-full border border-slate-200/50 dark:border-slate-700/50">
               <div className="w-2 h-2 bg-teal-500 rounded-full mr-2"></div>
-              <span className="text-slate-700 dark:text-slate-300">+1,200 negocios</span>
+              <span className="text-slate-700 dark:text-slate-300">
+                {statsLoading ? '...' : `+${stats.totalBusinesses}`} negocios
+              </span>
             </div>
             <div className="flex items-center bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm px-4 py-2 rounded-full border border-slate-200/50 dark:border-slate-700/50">
               <Star className="h-3 w-3 text-yellow-500 mr-2 fill-current" />
-              <span className="text-slate-700 dark:text-slate-300">+5,000 reseñas</span>
+              <span className="text-slate-700 dark:text-slate-300">
+                {statsLoading ? '...' : `+${stats.totalReviews}`} reseñas
+              </span>
             </div>
             <div className="flex items-center bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm px-4 py-2 rounded-full border border-slate-200/50 dark:border-slate-700/50">
               <div className="w-2 h-2 bg-cyan-500 rounded-full mr-2"></div>
-              <span className="text-slate-700 dark:text-slate-300">3 ciudades</span>
+              <span className="text-slate-700 dark:text-slate-300">
+                {statsLoading ? '...' : stats.totalCities} ciudades
+              </span>
             </div>
           </div>
 
