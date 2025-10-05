@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Building, Users, TrendingUp, Star, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterBusiness = () => {
   const handleRegisterClick = () => {
