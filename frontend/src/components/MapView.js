@@ -267,7 +267,15 @@ const MapView = () => {
                         }}
                       >
                         <div className="relative">
-                          <div className="w-10 h-10 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg border-2 border-white dark:border-slate-800 hover:from-teal-600 hover:to-cyan-600 transition-colors duration-300">
+                          <div 
+                            className="w-10 h-10 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg border-2 border-white dark:border-slate-800 hover:from-teal-600 hover:to-cyan-600 transition-colors duration-300 cursor-pointer"
+                            onClick={() => {
+                              toast({
+                                title: pin.category,
+                                description: `${pin.count} negocios en esta área`,
+                              });
+                            }}
+                          >
                             <IconComponent className="h-5 w-5 text-white" />
                           </div>
                           <Badge className="absolute -top-2 -right-2 bg-yellow-500 text-white text-xs min-w-[1.25rem] h-5 flex items-center justify-center p-0 border-2 border-white dark:border-slate-800">
