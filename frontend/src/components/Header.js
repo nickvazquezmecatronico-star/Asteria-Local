@@ -114,11 +114,18 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden pb-4 border-t border-slate-200 dark:border-slate-700 mt-2 pt-4">
             <div className="flex flex-col space-y-2">
-              <Button variant="ghost" className="justify-start">
+              <Button 
+                variant="ghost" 
+                className="justify-start"
+                onClick={() => navigate('/login')}
+              >
                 <User className="h-4 w-4 mr-2" />
                 Iniciar sesión
               </Button>
-              <Button className="justify-start bg-gradient-to-r from-teal-600 to-cyan-600 text-white">
+              <Button 
+                className="justify-start bg-gradient-to-r from-teal-600 to-cyan-600 text-white"
+                onClick={() => navigate('/business-registration')}
+              >
                 <Building className="h-4 w-4 mr-2" />
                 Registrar negocio
               </Button>
