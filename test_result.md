@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test the Asteria Local backend API comprehensively with all core endpoints, filtering, pagination, error handling, and data validation."
+user_problem_statement: "Test the Asteria Local frontend application comprehensively at http://localhost:3000. This is a business directory for Tampico, Madero and Altamira with full backend integration."
 
 backend:
   - task: "Health Check API Endpoint"
