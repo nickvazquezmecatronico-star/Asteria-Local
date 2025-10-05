@@ -354,7 +354,12 @@ metadata:
 
 test_plan:
   current_focus:
-    - "All backend API endpoints tested and working"
+    - "Theme Functionality (Light/Dark Mode)"
+    - "Header & Navigation"
+    - "Hero Section with Real Statistics"
+    - "Categories Section with Backend Integration"
+    - "Top Businesses Section"
+    - "Backend Integration and API Calls"
   stuck_tasks: []
   test_all: true
   test_priority: "high_first"
