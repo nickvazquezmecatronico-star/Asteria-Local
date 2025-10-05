@@ -9,6 +9,7 @@ import { useCategories } from '../hooks/useCategories';
 import { useGeolocation } from '../hooks/useGeolocation';
 import { useBusinessesNearby } from '../hooks/useBusinessesNearby';
 import BusinessMapPin from './BusinessMapPin';
+import { openInGoogleMaps, getDirections, shareLocation } from '../utils/maps';
 import * as LucideIcons from 'lucide-react';
 
 const MapView = () => {
