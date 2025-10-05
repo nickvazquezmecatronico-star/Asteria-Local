@@ -1,7 +1,9 @@
 import React from 'react';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
+import { Button } from './ui/button';
 import { useCategories } from '../hooks/useCategories';
+import { useNavigate } from 'react-router-dom';
 import * as LucideIcons from 'lucide-react';
 
 const Categories = () => {
