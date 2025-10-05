@@ -46,8 +46,8 @@ export const businessesAPI = {
   getById: (businessId) => 
     apiClient.get(`/businesses/${businessId}`),
   
-  getByCategory: (categorySlug, limit = 20) => 
-    apiClient.get(`/categories/${categorySlug}/businesses?limit=${limit}`),
+  getByCategory: (categoryName, limit = 100) => 
+    apiClient.get(`/categories/${categoryName}/businesses?limit=${limit}`),
   
   search: (searchTerm, filters = {}) => 
     apiClient.get('/businesses/', { 
