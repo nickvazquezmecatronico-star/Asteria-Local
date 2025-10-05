@@ -98,6 +98,18 @@ const BusinessDetail = () => {
     }
   };
 
+  const handleNewReview = (newReview) => {
+    setReviews(prev => [newReview, ...prev]);
+    // Update business rating (simple average for demo)
+    const newTotal = reviews.length + 1;
+    const newAverage = (business.rating_average * business.total_reviews + newReview.rating) / newTotal;
+    setBusiness(prev => ({
+      ...prev,
+      rating_average: newAverage,
+      total_reviews: newTotal
+    }));
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 flex items-center justify-center">
