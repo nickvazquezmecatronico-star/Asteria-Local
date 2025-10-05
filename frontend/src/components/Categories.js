@@ -8,9 +8,10 @@ import * as LucideIcons from 'lucide-react';
 
 const Categories = () => {
   const { categories, loading, error } = useCategories();
+  const navigate = useNavigate();
 
   const handleCategoryClick = (category) => {
-    console.log('Category selected:', category.name);
+    navigate(`/category/${category.slug}`);
   };
 
   if (loading) {
