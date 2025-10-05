@@ -226,7 +226,125 @@ backend:
           comment: "✅ Data consistency verified across all endpoints. Business counts in categories match actual businesses. Stats endpoint data matches actual database counts."
 
 frontend:
-  # Frontend testing not performed as per system instructions
+  - task: "Theme Functionality (Light/Dark Mode)"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/contexts/ThemeContext.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Theme toggle functionality needs testing - verify persistence and proper color changes across all sections"
+
+  - task: "Header & Navigation"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/Header.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Header components need testing - logo visibility, search bar, login/register buttons, mobile responsiveness"
+
+  - task: "Hero Section with Real Statistics"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/Hero.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Hero section needs testing - verify real statistics from backend (8 businesses, 2 reviews, 3 cities, 4.6 rating), CTA buttons functionality"
+
+  - task: "Categories Section with Backend Integration"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/Categories.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Categories section needs testing - verify 10 categories loading from backend, icons display, business counts, hover animations"
+
+  - task: "Top Businesses Section"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/TopBusinesses.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Top businesses section needs testing - verify 5 featured businesses from backend, medal badges for top 3, contact buttons functionality"
+
+  - task: "Map Section with Filters"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/MapView.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Map section needs testing - verify map placeholder, category filters, map pins with counts, filter buttons interactivity"
+
+  - task: "Business Registration CTA"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/RegisterBusiness.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Registration section needs testing - verify section visibility, benefits list, CTA button functionality"
+
+  - task: "Footer with Links and Newsletter"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/Footer.js"
+    stuck_count: 0
+    priority: "low"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Footer needs testing - verify all links, social media icons, newsletter signup form, copyright and branding"
+
+  - task: "Backend Integration and API Calls"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/services/api.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Backend integration needs testing - verify API calls are successful, loading states, error handling, data consistency"
+
+  - task: "Responsive Design"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Responsive design needs testing - verify mobile, tablet, and desktop layouts, scrolling and navigation on different screen sizes"
 
 metadata:
   created_by: "testing_agent"
