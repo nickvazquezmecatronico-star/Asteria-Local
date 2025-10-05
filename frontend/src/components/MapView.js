@@ -130,7 +130,7 @@ const MapView = () => {
                   {/* Map Pins */}
                   {filteredPins.map((pin, index) => {
                     const category = categories.find(cat => cat.name === pin.category);
-                    const IconComponent = category?.icon || MapPin;
+                    const IconComponent = category ? LucideIcons[category.icon] || MapPin : MapPin;
                     
                     return (
                       <div
