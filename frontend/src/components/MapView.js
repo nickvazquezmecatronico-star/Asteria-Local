@@ -13,8 +13,14 @@ import * as LucideIcons from 'lucide-react';
 
 const MapView = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedPin, setSelectedPin] = useState(null);
+  const [showNearbyOnly, setShowNearbyOnly] = useState(false);
+  
   const { pins: mapPins, loading: pinsLoading } = useMapData({ category: selectedCategory });
   const { categories, loading: categoriesLoading } = useCategories();
+  const { location, loading: locationLoading, error: locationError, getLocation } = useGeolocation();
+  const { businesses: nearbyBusinesses, loading: nearbyLoading } = useBusinessesNearby(location, 10);
+  const { toast } = useToast();
 
   const handleCategoryFilter = (categoryName) => {
     setSelectedCategory(selectedCategory === categoryName ? null : categoryName);
