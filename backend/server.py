@@ -39,10 +39,11 @@ api_router.include_router(stats_router)
 # Include the router in the main app
 app.include_router(api_router)
 
+# CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -54,6 +55,16 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Startup event
+@app.on_event("startup")
+async def startup_event():
+    """Initialize database on startup"""
+    await init_database()
+    logger.info("🚀 Asteria Local API started successfully")
+
+# Shutdown event
 @app.on_event("shutdown")
-async def shutdown_db_client():
-    client.close()
+async def shutdown_event():
+    """Close database connection on shutdown"""
+    await close_database()
+    logger.info("👋 Asteria Local API shut down")
