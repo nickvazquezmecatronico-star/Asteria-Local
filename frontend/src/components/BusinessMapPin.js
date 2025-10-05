@@ -2,7 +2,7 @@ import React from 'react';
 import { Badge } from './ui/badge';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
-import { Star, Phone, MessageCircle, Navigation } from 'lucide-react';
+import { Star, Phone, MessageCircle, Navigation, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { formatDistance } from '../utils/geolocation';
 import { openInGoogleMaps, getDirections, shareLocation } from '../utils/maps';
