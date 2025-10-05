@@ -5,6 +5,8 @@ import { Button } from './ui/button';
 import { Star, Phone, MessageCircle, Navigation } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { formatDistance } from '../utils/geolocation';
+import { openInGoogleMaps, getDirections, shareLocation } from '../utils/maps';
+import { useToast } from '../hooks/use-toast';
 import * as LucideIcons from 'lucide-react';
 
 const BusinessMapPin = ({ 
