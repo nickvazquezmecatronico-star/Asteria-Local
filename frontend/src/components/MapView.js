@@ -24,9 +24,41 @@ const MapView = () => {
 
   const handleCategoryFilter = (categoryName) => {
     setSelectedCategory(selectedCategory === categoryName ? null : categoryName);
+    setSelectedPin(null);
   };
 
-  const filteredPins = mapPins;
+  const handleLocateMe = async () => {
+    try {
+      const userLocation = await getLocation();
+      setShowNearbyOnly(true);
+      setSelectedPin(null);
+      
+      toast({
+        title: "¡Ubicación encontrada!",
+        description: `Mostrando negocios cerca de tu ubicación`,
+      });
+    } catch (error) {
+      toast({
+        title: "Error de ubicación",
+        description: locationError || "No se pudo obtener tu ubicación",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const handlePinClick = (business, category) => {
+    setSelectedPin({ business, category });
+  };
+
+  const handlePinClose = () => {
+    setSelectedPin(null);
+  };
+
+  // Determine which businesses to show
+  const displayBusinesses = showNearbyOnly && location ? nearbyBusinesses : [];
+  const filteredPins = selectedCategory 
+    ? mapPins.filter(pin => pin.category === selectedCategory)
+    : mapPins;
 
   return (
     <section data-section="map" className="py-20 bg-white dark:bg-slate-900 transition-colors duration-300">
