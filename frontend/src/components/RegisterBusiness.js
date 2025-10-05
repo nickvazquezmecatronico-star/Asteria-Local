@@ -41,7 +41,7 @@ const RegisterBusiness = () => {
           {/* Main Heading */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6">
             ¿Tienes un negocio?{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-cyan-600 to-teal-700 dark:from-teal-400 dark:via-cyan-400 dark:to-teal-500">
+            <span className="text-teal-600 dark:text-teal-400 font-bold">
               Súmalo a Asteria Local
             </span>
           </h2>
