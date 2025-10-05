@@ -201,8 +201,52 @@ const MapView = () => {
                     </Badge>
                   </div>
 
-                  {/* Map Pins */}
-                  {filteredPins.map((pin, index) => {
+                  {/* User Location Pin */}
+                  {location && (
+                    <div
+                      className="absolute transform -translate-x-1/2 -translate-y-1/2 z-20"
+                      style={{
+                        left: '50%',
+                        top: '45%',
+                      }}
+                    >
+                      <div className="relative">
+                        <div className="w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow-lg animate-pulse"></div>
+                        <div className="absolute inset-0 w-4 h-4 bg-blue-500 rounded-full animate-ping opacity-20"></div>
+                      </div>
+                      <Badge className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white text-xs">
+                        Tu ubicación
+                      </Badge>
+                    </div>
+                  )}
+
+                  {/* Show nearby businesses if location is available */}
+                  {showNearbyOnly && location && displayBusinesses.map((business, index) => {
+                    const category = categories.find(cat => cat.name === business.category);
+                    
+                    return (
+                      <div
+                        key={`nearby-${business.id}`}
+                        className="absolute transform -translate-x-1/2 -translate-y-1/2"
+                        style={{
+                          left: `${45 + (index * 8)}%`,
+                          top: `${30 + (index * 10)}%`,
+                        }}
+                      >
+                        <BusinessMapPin
+                          business={business}
+                          category={category}
+                          isSelected={selectedPin?.business?.id === business.id}
+                          onClick={() => handlePinClick(business, category)}
+                          onClose={handlePinClose}
+                          userLocation={location}
+                        />
+                      </div>
+                    );
+                  })}
+
+                  {/* Show regular map pins if not showing nearby only */}
+                  {!showNearbyOnly && filteredPins.map((pin, index) => {
                     const category = categories.find(cat => cat.name === pin.category);
                     const IconComponent = category ? LucideIcons[category.icon] || MapPin : MapPin;
                     
