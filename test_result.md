@@ -396,10 +396,11 @@ metadata:
 
 test_plan:
   current_focus:
-    - "All frontend tasks completed and tested successfully"
-  stuck_tasks: []
-  test_all: true
-  test_priority: "completed"
+    - "Enhanced Map Functionality with Geolocation"
+  stuck_tasks: 
+    - "Enhanced Map Functionality with Geolocation"
+  test_all: false
+  test_priority: "high_first"
 
 agent_communication:
     - agent: "testing"
@@ -408,3 +409,5 @@ agent_communication:
       message: "Starting comprehensive frontend testing for Asteria Local business directory. Will test theme functionality, header/navigation, hero section with real backend statistics, categories integration, top businesses section, map functionality, registration CTA, footer, backend integration, and responsive design. Testing at http://localhost:3000 with full backend integration verification."
     - agent: "testing"
       message: "🎉 COMPREHENSIVE FRONTEND TESTING COMPLETED SUCCESSFULLY! All 10 frontend tasks are working perfectly. ✅ Theme toggle with persistence, ✅ Header with logo/search/buttons, ✅ Hero with real stats (8 businesses, 2 reviews, 3 cities, 4.6 rating), ✅ Categories (10 cards with real counts), ✅ Top businesses (5 cards with medals), ✅ Map with filters and pins, ✅ Registration CTA, ✅ Footer with newsletter, ✅ Full backend integration (all APIs returning 200), ✅ Mobile responsiveness. Minor: React key prop warnings in console (non-critical). Application is production-ready and fully functional!"
+    - agent: "testing"
+      message: "Enhanced Map Functionality Testing Completed. Found critical issues with geolocation features: ✅ Working: Map structure, 'Ubicarme' button styling, category filters, city labels, map controls, action buttons. ❌ Critical Issues: Geolocation not functioning (no user location pin, no 'Solo cercanos' toggle), business pin interactions limited, React key prop warnings. The enhanced geolocation features requested by user are not fully functional. Geolocation API calls may be failing or permissions not granted in testing environment."
