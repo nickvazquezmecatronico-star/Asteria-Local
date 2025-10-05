@@ -226,6 +226,18 @@ backend:
           comment: "✅ Data consistency verified across all endpoints. Business counts in categories match actual businesses. Stats endpoint data matches actual database counts."
 
 frontend:
+  - task: "Enhanced Map Functionality with Geolocation"
+    implemented: true
+    working: false
+    file: "frontend/src/components/MapView.js"
+    stuck_count: 1
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: false
+          agent: "testing"
+          comment: "❌ Enhanced map functionality partially working. ✅ Working: Hero 'Ver en mapa' navigation, map section structure, 'Ubicarme' button with proper blue styling and Crosshair icon, category filters (Restaurantes, Cafés, etc.), map container with city labels (Tampico, Cd. Madero, Altamira), map legend, map controls, action buttons. ❌ Issues: Geolocation not working properly (no user location pin or 'Solo cercanos' toggle visible), business pin popups not fully interactive, 'Ver más' buttons have selector conflicts. Minor: React key prop warnings in console."
+
   - task: "Theme Functionality (Light/Dark Mode)"
     implemented: true
     working: true
