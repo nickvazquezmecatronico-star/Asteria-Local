@@ -101,7 +101,12 @@ const Categories = () => {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <button className="inline-flex items-center px-6 py-3 text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium transition-colors duration-200 group">
+          <Button 
+            variant="outline" 
+            size="lg"
+            onClick={() => navigate('/categories')}
+            className="inline-flex items-center px-8 py-3 text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium transition-colors duration-200 group border-2 border-slate-300 dark:border-slate-600 hover:border-teal-500 dark:hover:border-teal-400"
+          >
             Ver todas las categorías
             <svg 
               className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" 
@@ -111,7 +116,7 @@ const Categories = () => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </button>
+          </Button>
         </div>
       </div>
     </section>
