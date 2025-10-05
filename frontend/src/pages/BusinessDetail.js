@@ -18,6 +18,7 @@ const BusinessDetail = () => {
   const [business, setBusiness] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     fetchBusinessDetail();
