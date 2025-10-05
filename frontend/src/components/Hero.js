@@ -5,6 +5,22 @@ import { usePlatformStats } from '../hooks/useStats';
 
 const Hero = () => {
   const { stats, loading: statsLoading } = usePlatformStats();
+
+  const handleExploreBusinesses = () => {
+    // Scroll to categories section
+    const categoriesSection = document.querySelector('[data-section="categories"]');
+    if (categoriesSection) {
+      categoriesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleViewMap = () => {
+    // Scroll to map section
+    const mapSection = document.querySelector('[data-section="map"]');
+    if (mapSection) {
+      mapSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section className="relative pt-16 pb-20 min-h-[60vh] flex items-center overflow-hidden">
       {/* Background */}
