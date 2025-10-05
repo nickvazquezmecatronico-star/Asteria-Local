@@ -4,6 +4,8 @@ import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Star, Phone, MessageCircle, MapPin, Award } from 'lucide-react';
 import { useFeaturedBusinesses } from '../hooks/useBusinesses';
+import { useNavigate } from 'react-router-dom';
+import { useToast } from '../hooks/use-toast';
 
 const TopBusinesses = () => {
   const { businesses: topBusinesses, loading, error } = useFeaturedBusinesses(5);
