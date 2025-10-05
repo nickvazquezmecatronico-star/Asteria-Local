@@ -347,13 +347,62 @@ const MapView = () => {
 
             {/* Map Actions */}
             <div className="mt-6 flex flex-wrap gap-4 justify-center">
-              <Button className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white">
+              <Button 
+                className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white"
+                onClick={() => {
+                  const center = { lat: 22.2354, lng: -97.8606 };
+                  openInGoogleMaps(center.lat, center.lng, 'Tampico Centro');
+                  toast({
+                    title: "Abriendo Google Maps",
+                    description: "Te redirigimos a Google Maps",
+                  });
+                }}
+              >
                 Abrir en Google Maps
               </Button>
-              <Button variant="outline" className="border-slate-300 dark:border-slate-600">
+              <Button 
+                variant="outline" 
+                className="border-slate-300 dark:border-slate-600"
+                onClick={() => {
+                  const center = { lat: 22.2354, lng: -97.8606 };
+                  getDirections(center.lat, center.lng, 'Tampico Centro');
+                  toast({
+                    title: "Obteniendo direcciones",
+                    description: "Abriendo Google Maps con direcciones",
+                  });
+                }}
+              >
                 Obtener direcciones
               </Button>
-              <Button variant="outline" className="border-slate-300 dark:border-slate-600">
+              <Button 
+                variant="outline" 
+                className="border-slate-300 dark:border-slate-600"
+                onClick={async () => {
+                  const center = { lat: 22.2354, lng: -97.8606 };
+                  const result = await shareLocation(
+                    center.lat, 
+                    center.lng, 
+                    'Área de Tampico, Madero y Altamira',
+                    'Zona metropolitana de Tampico'
+                  );
+                  
+                  if (result.success) {
+                    const message = result.method === 'native' 
+                      ? 'Ubicación compartida exitosamente'
+                      : 'Ubicación copiada al portapapeles';
+                    toast({
+                      title: "¡Ubicación compartida!",
+                      description: message,
+                    });
+                  } else {
+                    toast({
+                      title: "Error",
+                      description: result.error || 'No se pudo compartir la ubicación',
+                      variant: "destructive"
+                    });
+                  }
+                }}
+              >
                 Compartir ubicación
               </Button>
             </div>
