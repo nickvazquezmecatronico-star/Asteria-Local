@@ -32,7 +32,7 @@ const TopBusinesses = () => {
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
             Top de la{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 via-amber-600 to-yellow-700 dark:from-yellow-400 dark:via-amber-400 dark:to-yellow-500">
+            <span className="text-yellow-600 dark:text-yellow-400 font-bold">
               semana
             </span>
           </h2>
