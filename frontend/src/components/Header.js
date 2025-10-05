@@ -67,12 +67,14 @@ const Header = () => {
               <Button 
                 variant="ghost" 
                 size="sm"
+                onClick={() => navigate('/login')}
                 className="text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors duration-200"
               >
                 <User className="h-4 w-4 mr-2" />
                 Iniciar sesión
               </Button>
               <Button 
+                onClick={() => navigate('/business-registration')}
                 className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white transition-all duration-200 shadow-md hover:shadow-lg"
               >
                 <Building className="h-4 w-4 mr-2" />
