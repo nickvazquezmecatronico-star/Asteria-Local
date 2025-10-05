@@ -15,7 +15,7 @@ const Categories = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
             Explora por{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-600 dark:from-teal-400 dark:to-cyan-400">
+            <span className="text-teal-600 dark:text-teal-400 font-bold">
               categorías
             </span>
           </h2>
