@@ -9,6 +9,7 @@ import {
   Clock, Shield, Heart, Share2, Bookmark 
 } from 'lucide-react';
 import { businessesAPI, handleApiError } from '../services/api';
+import ReviewSection from '../components/ReviewSection';
 
 const BusinessDetail = () => {
   const { businessId } = useParams();
