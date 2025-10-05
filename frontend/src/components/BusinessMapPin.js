@@ -37,6 +37,82 @@ const BusinessMapPin = ({
     navigate(`/business/${business.id}`);
   };
 
+  const handleOpenMaps = async (e) => {
+    e.stopPropagation();
+    const lat = business.address?.coordinates?.lat || business.lat;
+    const lng = business.address?.coordinates?.lng || business.lng;
+    
+    if (lat && lng) {
+      openInGoogleMaps(lat, lng, business.name);
+      toast({
+        title: "Abriendo Google Maps",
+        description: `Mostrando ubicación de ${business.name}`,
+      });
+    } else {
+      toast({
+        title: "Ubicación no disponible",
+        description: "No se pudo obtener la ubicación del negocio",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const handleGetDirections = async (e) => {
+    e.stopPropagation();
+    const lat = business.address?.coordinates?.lat || business.lat;
+    const lng = business.address?.coordinates?.lng || business.lng;
+    
+    if (lat && lng) {
+      getDirections(lat, lng, business.name, userLocation);
+      toast({
+        title: "Obteniendo direcciones",
+        description: `Calculando ruta a ${business.name}`,
+      });
+    } else {
+      toast({
+        title: "Ubicación no disponible",
+        description: "No se pudo obtener la ubicación del negocio",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const handleShareLocation = async (e) => {
+    e.stopPropagation();
+    const lat = business.address?.coordinates?.lat || business.lat;
+    const lng = business.address?.coordinates?.lng || business.lng;
+    
+    if (lat && lng) {
+      const address = business.address?.street 
+        ? `${business.address.street}, ${business.address.neighborhood || ''}, ${business.address.city}`
+        : business.address?.city || '';
+        
+      const result = await shareLocation(lat, lng, business.name, address);
+      
+      if (result.success) {
+        const message = result.method === 'native' 
+          ? 'Ubicación compartida exitosamente'
+          : 'Ubicación copiada al portapapeles';
+        toast({
+          title: "¡Ubicación compartida!",
+          description: message,
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: result.error || 'No se pudo compartir la ubicación',
+          variant: "destructive"
+        });
+      }
+    } else {
+      toast({
+        title: "Ubicación no disponible",
+        description: "No se pudo obtener la ubicación del negocio",
+        variant: "destructive"
+      });
+    }
+  };
+
   return (
     <div className="relative">
       {/* Map Pin */}
