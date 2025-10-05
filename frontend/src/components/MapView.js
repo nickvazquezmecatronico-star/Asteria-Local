@@ -16,9 +16,7 @@ const MapView = () => {
     setSelectedCategory(selectedCategory === categoryName ? null : categoryName);
   };
 
-  const filteredPins = selectedCategory 
-    ? mapPins.filter(pin => pin.category === selectedCategory)
-    : mapPins;
+  const filteredPins = mapPins;
 
   return (
     <section className="py-20 bg-white dark:bg-slate-900 transition-colors duration-300">
