@@ -84,6 +84,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
+              onClick={handleExploreBusinesses}
               className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               <Search className="h-5 w-5 mr-2" />
@@ -92,6 +93,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
+              onClick={handleViewMap}
               className="border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 px-8 py-3 text-lg font-medium transition-all duration-300 hover:border-teal-500 dark:hover:border-teal-400"
             >
               Ver en mapa
