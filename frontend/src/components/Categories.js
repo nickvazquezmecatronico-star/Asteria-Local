@@ -1,12 +1,50 @@
 import React from 'react';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
-import { categories } from '../data/mockData';
+import { useCategories } from '../hooks/useCategories';
+import * as LucideIcons from 'lucide-react';
 
 const Categories = () => {
+  const { categories, loading, error } = useCategories();
+
   const handleCategoryClick = (category) => {
     console.log('Category selected:', category.name);
   };
+
+  if (loading) {
+    return (
+      <section className="py-20 bg-white dark:bg-slate-900 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+              Explora por{' '}
+              <span className="text-teal-600 dark:text-teal-400 font-bold">
+                categorías
+              </span>
+            </h2>
+            <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+              Encuentra exactamente lo que necesitas navegando por nuestras categorías más populares
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <Card key={i} className="animate-pulse bg-slate-200 dark:bg-slate-700 h-32"></Card>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="py-20 bg-white dark:bg-slate-900 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-red-500 dark:text-red-400">Error cargando categorías: {error}</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-20 bg-white dark:bg-slate-900 transition-colors duration-300">
