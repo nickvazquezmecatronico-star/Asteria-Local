@@ -44,6 +44,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/business-registration" element={<BusinessRegistration />} />
             <Route path="/business/:businessId" element={<BusinessDetail />} />
+            <Route path="/categories" element={<AllCategories />} />
+            <Route path="/category/:categorySlug" element={<CategoryPage />} />
           </Routes>
           <Toaster />
         </BrowserRouter>
