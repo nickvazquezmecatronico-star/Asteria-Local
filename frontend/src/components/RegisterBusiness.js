@@ -5,8 +5,10 @@ import { Building, Users, TrendingUp, Star, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const RegisterBusiness = () => {
+  const navigate = useNavigate();
+  
   const handleRegisterClick = () => {
-    console.log('Register business clicked');
+    navigate('/business-registration');
   };
 
   const benefits = [
