@@ -30,6 +30,28 @@ const BusinessDetail = () => {
       setError(null);
       const response = await businessesAPI.getById(businessId);
       setBusiness(response.data);
+      
+      // Set mock reviews for demo
+      setReviews([
+        {
+          id: '1',
+          user_name: 'María González',
+          rating: 5,
+          comment: 'Excelente servicio y muy buena atención. El lugar está muy limpio y la comida deliciosa. Definitivamente regresaré.',
+          created_at: '2024-12-01T10:00:00Z',
+          is_verified: true,
+          helpful_count: 8
+        },
+        {
+          id: '2',
+          user_name: 'Carlos Méndez',
+          rating: 4,
+          comment: 'Muy buen lugar, la calidad es consistente y los precios justos. El único detalle es que a veces hay que esperar un poco.',
+          created_at: '2024-11-28T15:30:00Z',
+          is_verified: false,
+          helpful_count: 5
+        }
+      ]);
     } catch (err) {
       const apiError = handleApiError(err);
       setError(apiError.message);
