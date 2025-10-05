@@ -3,6 +3,7 @@ import { Search, User, Building, Moon, Sun, Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { useTheme } from '../contexts/ThemeContext';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const { isDark, toggleTheme } = useTheme();
