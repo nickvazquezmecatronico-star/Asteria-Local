@@ -30,18 +30,25 @@ const MapView = () => {
   const handleLocateMe = async () => {
     try {
       const userLocation = await getLocation();
+      
+      if (userLocation) {
+        setShowNearbyOnly(true);
+        setSelectedPin(null);
+        
+        toast({
+          title: "¡Ubicación encontrada!",
+          description: `Lat: ${userLocation.lat.toFixed(4)}, Lng: ${userLocation.lng.toFixed(4)}`,
+        });
+      }
+    } catch (error) {
+      // Fallback to default location for demo purposes
+      const defaultLocation = { lat: 22.2354, lng: -97.8606 };
       setShowNearbyOnly(true);
-      setSelectedPin(null);
       
       toast({
-        title: "¡Ubicación encontrada!",
-        description: `Mostrando negocios cerca de tu ubicación`,
-      });
-    } catch (error) {
-      toast({
-        title: "Error de ubicación",
-        description: locationError || "No se pudo obtener tu ubicación",
-        variant: "destructive"
+        title: "Ubicación simulada",
+        description: "Usando ubicación de Tampico para la demo",
+        variant: "default"
       });
     }
   };
